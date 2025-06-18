@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Er. Rajesh Kushwaha - Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <h1 class="display-4 fw-bold">Rajesh Kushwaha</h1>
+    <p class="lead">Welcome to my portfolio.</p>
+    <img src="my_pic.jpg" alt="Profile Image" class="profile-img">
+  </div>
+
+  <div class="container my-5">
+    <!-- Carousel Section -->
+    <div id="featuredCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-indicators"></div>
+      <div class="carousel-inner"></div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-uppercase fw-bold">1. Introduction</h2>
+            <hr>
+            <p>Hello! I am Rajesh Kushwaha, an engineer passionate about my profession and eager to learn new things.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-uppercase fw-bold">2. About My Job</h2>
+            <hr>
+            <p>As an engineer, I work on various technical projects that involve problem-solving, project management, and collaboration. I am dedicated to using my skills to contribute meaningfully to each project.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-uppercase fw-bold">3. My Literary Works</h2>
+            <hr>
+            <p>I enjoy writing and have contributed articles and essays on various topics. Here are some works:</p>
+            <ul>
+              <li><a href="art.html">My Art</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-uppercase fw-bold">6. Contact & Photo Gallery</h2>
+            <hr>
+            <p><strong>Contact:</strong> Reach me at <a href="mailto:rajjzzesh@gmail.com">rajjzzesh@gmail.com</a></p>
+            <p><strong>Photo Gallery:</strong></p>
+            <div class="row">
+              <div class="col-4">
+                <a href="https://placehold.co/600x400"><img src="first.jpg" alt="Thumbnail 1" class="img-fluid gallery-img"></a>
+              </div>
+              <div class="col-4">
+                <a href="https://placehold.co/600x400"><img src="second.jpg" alt="Thumbnail 2" class="img-fluid gallery-img"></a>
+              </div>
+              <div class="col-4">
+                <a href="https://placehold.co/600x400"><img src="third.jpg" alt="Thumbnail 3" class="img-fluid gallery-img"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center py-3">
+    <p class="text-danger mb-0">© Rajesh Kushwaha, 2025. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dynamic Carousel Slides
+    const slides = [
+      { image: 'first.jpg', caption: '', description: '' },
+      { image: 'second.jpg', caption: '', description: '' },
+      { image: 'third.jpg', caption: '', description: '' }
+    ];
+
+    const carouselInner = document.querySelector('#featuredCarousel .carousel-inner');
+    const carouselIndicators = document.querySelector('#featuredCarousel .carousel-indicators');
+
+    slides.forEach((slide, index) => {
+      // Create carousel item
+      const item = document.createElement('div');
+      item.classList.add('carousel-item');
+      if (index === 0) item.classList.add('active');
+      item.innerHTML = `
+        <img src="${slide.image}" class="d-block w-100" alt="${slide.caption}">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>${slide.caption}</h5>
+          <p>${slide.description}</p>
+        </div>
+      `;
+      carouselInner.appendChild(item);
+
+      // Create indicator
+      const indicator = document.createElement('button');
+      indicator.type = 'button';
+      indicator.setAttribute('data-bs-target', '#featuredCarousel');
+      indicator.setAttribute('data-bs-slide-to', index);
+      if (index === 0) indicator.classList.add('active');
+      indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+      carouselIndicators.appendChild(indicator);
+    });
+
+    // Maximize button functionality
+    document.querySelector('.btn-primary').addEventListener('click', function() {
+      alert('Maximize button clicked');
+    });
+  </script>
+</body>
+</html>
